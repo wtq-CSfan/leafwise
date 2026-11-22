@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#173e2d">
+  <meta name="description" content="Identify plants from photos and save your botanical discoveries.">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/static/leaf.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/style.css">
+  <title>Leafwise · Plant Identifier</title>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-icon">✿</span><span>Leafwise <small>PLANT JOURNAL</small></span></a>
+    <nav><a href="#identify">Identify</a><a href="#history">My History</a></nav>
+    <button id="installBtn" class="install-btn" hidden>Install App</button>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> YOUR LITTLE BOTANICAL COMPANION</p>
+        <h1>Every leaf<br><em>has a story to tell.</em></h1>
+        <p class="hero-desc">Photograph the plants around you and discover their names and features. Save every encounter in your own plant journal.</p>
+        <a class="primary-btn" href="#identify">Identify a Plant <span>↗</span></a>
+        <div class="hero-stats"><div><b>01</b><span>Identify</span></div><i></i><div><b>02</b><span>Save</span></div><i></i><div><b>03</b><span>Explore</span></div></div>
+      </div>
+      <div class="hero-visual" aria-label="Decorative botanical leaves">
+        <div class="sun-disc"></div><div class="leaf leaf-one"></div><div class="leaf leaf-two"></div><div class="leaf leaf-three"></div><div class="leaf leaf-four"></div><div class="stem"></div>
+        <div class="floating-label"><span>FIELD NOTE / 001</span><strong>Observe slowly.</strong><small>Nature is full of details.</small></div>
+      </div>
+    </section>
+    <section id="identify" class="work-grid">
+      <div class="section-intro"><p class="eyebrow">01 / IDENTIFY</p><h2>What did you discover today?</h2><p>Upload a plant photo, or use your phone camera to take one.</p></div>
+      <div class="upload-card">
+        <form id="uploadForm">
+          <label class="drop-zone" for="fileInput" id="dropZone">
+            <img id="preview" alt="Preview of the plant photo to identify" hidden>
+            <span class="upload-icon" id="uploadIcon">＋</span>
+            <strong id="uploadTitle">Add a plant photo</strong>
+            <span id="uploadHint">Choose an image or take a photo with your phone</span>
+            <small>JPG · PNG · WEBP, up to 10 MB</small>
+          </label>
+          <input id="fileInput" name="img" type="file" accept="image/*" capture="environment" hidden>
+          <div class="form-actions">
+            <button class="secondary-btn" type="button" id="cameraBtn">Take Photo / Choose Image</button>
+            <button class="primary-btn" type="submit" id="submitBtn">Identify Plant <span>↗</span></button>
+          </div>
+        </form>
+        <p class="privacy-note">Your photo is sent to the recognition service. A thumbnail is saved in this app's database for your history.</p>
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+    <section id="resultSection" class="result-section" hidden>
+      <div class="section-intro"><p class="eyebrow">02 / RESULT</p><h2>Identification Result</h2></div>
+      <div id="result" class="result-card"></div>
+    </section>
+    <section id="history" class="history-section">
+      <div class="history-heading"><div><p class="eyebrow">03 / YOUR COLLECTION</p><h2>Your Plant Journal</h2><p>Every identification is saved here.</p></div><button id="clearHistoryBtn" class="text-btn">Clear History</button></div>
+      <div id="historyList" class="history-grid"><div class="empty-state">Loading your plant journal…</div></div>
+    </section>
+    <footer><span>✿ Leafwise · Plant Journal</span><span>Stay curious, stay close to nature.</span></footer>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
